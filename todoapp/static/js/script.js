@@ -1,7 +1,7 @@
-async function submitForm() {
+async function submitForm(event) {
+  event.target.style.cursor = "not_allowed";
   csrfmiddlewaretoken = document.getElementsByName("csrfmiddlewaretoken")[0];
   title = document.getElementById("title");
-  console.log(title.value);
   try {
     const response = await fetch("/", {
       method: "POST",

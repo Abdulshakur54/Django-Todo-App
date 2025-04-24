@@ -18,7 +18,7 @@
       <form class="input-group" method="POST" action="#" onsubmit="return false">
         {% csrf_token %}
         <input type="text" placeholder="Add a new task..." name="title" id="title"/>
-        <button type="submit" onclick="submitForm()">Add</button>
+        <button type="submit" onclick="submitForm(event)">Add</button><div class="spinner hide" id="submitSpinner"></div>
       </form>
 
       <ul class="task-list", id="parentlist">
@@ -38,8 +38,8 @@
               <span class="task-text">{{ todo.title}}</span>
             </label>
           {% endif %}
-
-          <span class="close" onclick="deleteTodo('{{ todo.id }}')">X</span>
+          <div class="spinner2 hide" id="itemSpinner{{todo.id}}"></div>
+          <span class="close" onclick="deleteTodo(event,'{{ todo.id }}')">X</span>
         </li>
         {% endfor %}
         <!-- <li>

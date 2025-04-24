@@ -137,4 +137,34 @@ li{
     background-color: red;
     color: white;
   }
+
+  /* Style for Spinner*/
+
+
+  .spinner, .spinner2 {
+      border: 3px solid #f3f3f3;       /* Light gray */
+      border-top: 3px solid #1e9e27;   /* Blue */
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      animation: spin 1s linear infinite;
+      margin-top: 7px;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
   
+
+    .spinner2{
+      position: relative;
+      z-index: 1000;
+      left: 330px;
+      top: -50px;
+    }
+
+    .hide{
+      display: none;
+    }
+
+   

@@ -1,7 +1,10 @@
-async function submitForm() {
+async function submitForm(event) {
   csrfmiddlewaretoken = document.getElementsByName("csrfmiddlewaretoken")[0];
   title = document.getElementById("title");
-  console.log(title.value);
+  event.target.disabled = true;
+  const submitSpinner = document.getElementById("submitSpinner");
+  submitSpinner.classList.remove('hide')
+  
   try {
     const response = await fetch("/", {
       method: "POST",
@@ -13,7 +16,8 @@ async function submitForm() {
         "title": title.value
       }),
     });
-
+    event.target.disabled = false;
+    submitSpinner.classList.add('hide')
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
@@ -39,8 +43,11 @@ async function submitForm() {
 
 // Call the function
 
-async function deleteTodo(id) {
+async function deleteTodo(event, id) {
   csrfmiddlewaretoken = document.getElementsByName("csrfmiddlewaretoken")[0];
+  event.target.disabled = true;
+  const itemSpinner = document.getElementById("itemSpinner" + id);
+  itemSpinner.classList.remove('hide')
   try {
     const response = await fetch(`/${id}`, {
       method: "DELETE",
@@ -50,6 +57,8 @@ async function deleteTodo(id) {
       },
     });
 
+    event.target.disabled = false;
+    itemSpinner.classList.add('hide')
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
@@ -64,6 +73,8 @@ async function deleteTodo(id) {
 
 async function checkTodo(id) {
   csrfmiddlewaretoken = document.getElementsByName("csrfmiddlewaretoken")[0];
+  const itemSpinner = document.getElementById("itemSpinner" + id);
+  itemSpinner.classList.remove('hide')
   try {
     const response = await fetch(`/${id}`, {
       method: "PATCH",
@@ -72,7 +83,7 @@ async function checkTodo(id) {
         "X-CSRFToken": csrfmiddlewaretoken.value,
       },
     });
-
+    itemSpinner.classList.add('hide')
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
