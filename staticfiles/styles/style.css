@@ -1,0 +1,140 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+  }
+  
+  .app-container {
+    background: #fff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 480px;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 24px;
+  }
+  
+  .input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .input-group input {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #e9ecef;
+    font-size: 16px;
+  }
+  
+  .input-group button {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    opacity: 0.6;
+    cursor: pointer;
+  }
+  
+  .task-list {
+    list-style: none;
+  }
+  
+  .task {
+    display: flex;
+    align-items: center;
+    background: #f8fafc;
+    padding: 14px 16px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    position: relative;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .task:hover {
+    background: #eef2f7;
+  }
+  
+  .task input {
+    display: none;
+  }
+  
+  .checkmark {
+    height: 20px;
+    width: 20px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    margin-right: 12px;
+    position: relative;
+    flex-shrink: 0;
+  }
+  
+  .task input:checked + .checkmark {
+    background-color: #4caf50;
+    border-color: #4caf50;
+  }
+  
+  .task input:checked + .checkmark::after {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 1px;
+    width: 6px;
+    height: 12px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+  
+  .task-text {
+    font-size: 16px;
+    color: #333;
+    transition: color 0.3s, text-decoration 0.3s;
+  }
+  
+  .task input:checked ~ .task-text {
+    text-decoration: line-through;
+    color: #999;
+  }
+
+  .disabled {   
+    pointer-events: none;
+    opacity: 0.5;
+
+  }
+li{
+  position: relative;
+}
+  .close{
+    color: red;
+    position: absolute;
+    z-index: 1000;
+    left: 370px;
+    top: 7px;
+    display: inline-block;
+    border: 1px solid red;
+    padding: 5px;
+    text-align: center;
+  }
+  .close :hover{
+    background-color: red;
+    color: white;
+  }
+  
