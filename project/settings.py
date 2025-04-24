@@ -24,7 +24,7 @@ with open(os.path.join(BASE_DIR, 'secret_key.txt'), 'rt') as f:
     SECRET_KEY = f.read().strip()
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
